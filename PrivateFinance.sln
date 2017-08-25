@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrivateFinance.DataAccess.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrivateFinance.ViewModels", "PrivateFinance.ViewModels\PrivateFinance.ViewModels.csproj", "{BD4DB6ED-56B1-424D-AB95-5F9A68904401}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrivateFinance.Tests", "PrivateFinance.Tests\PrivateFinance.Tests.csproj", "{A8469DB3-3F04-4CF9-A703-B3996227090F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{BD4DB6ED-56B1-424D-AB95-5F9A68904401}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD4DB6ED-56B1-424D-AB95-5F9A68904401}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD4DB6ED-56B1-424D-AB95-5F9A68904401}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8469DB3-3F04-4CF9-A703-B3996227090F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8469DB3-3F04-4CF9-A703-B3996227090F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8469DB3-3F04-4CF9-A703-B3996227090F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8469DB3-3F04-4CF9-A703-B3996227090F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
