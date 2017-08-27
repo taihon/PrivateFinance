@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "targets": {
     ".NETCoreApp,Version=v1.1": {
       "Libuv/1.9.1": {
@@ -9662,19 +9662,37 @@
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
       "projectUniqueName": "e:\\users\\soralex\\documents\\visual studio 2017\\Projects\\PrivateFinance\\PrivateFinance.Web\\PrivateFinance.Web.csproj",
       "projectName": "PrivateFinance.Web",
       "projectPath": "e:\\users\\soralex\\documents\\visual studio 2017\\Projects\\PrivateFinance\\PrivateFinance.Web\\PrivateFinance.Web.csproj",
+      "packagesPath": "C:\\Users\\soralex\\.nuget\\packages\\",
       "outputPath": "e:\\users\\soralex\\documents\\visual studio 2017\\Projects\\PrivateFinance\\PrivateFinance.Web\\obj\\",
       "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\soralex\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {}
         }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
       }
     },
     "frameworks": {
