@@ -4,4 +4,13 @@
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Attachment\" />
+    <Folder Include="Category\" />
+    <Folder Include="Document\" />
+    <Folder Include="Place\" />
+    <Folder Include="Operation\" />
+    <Folder Include="User\" />
+  </ItemGroup>
+
 </Project>
