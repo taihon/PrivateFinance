@@ -15,4 +15,8 @@ namespace PrivateFinance.Entities
 
         public ICollection<Operation> Operations { get; set; }
     }
+    public enum AccountType
+    {
+        Savings, Regular
+    }
 }
