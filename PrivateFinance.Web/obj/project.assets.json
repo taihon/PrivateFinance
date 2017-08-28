@@ -3595,11 +3595,25 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
-      "PrivateFinance.ViewModels/1.0.0": {
+      "PrivateFinance.Entities/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v1.1",
         "dependencies": {
           "Microsoft.NETCore.App": "1.1.2"
+        },
+        "compile": {
+          "bin/placeholder/PrivateFinance.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PrivateFinance.Entities.dll": {}
+        }
+      },
+      "PrivateFinance.ViewModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v1.1",
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.1.2",
+          "PrivateFinance.Entities": "1.0.0"
         },
         "compile": {
           "bin/placeholder/PrivateFinance.ViewModels.dll": {}
@@ -9659,6 +9673,11 @@
         "system.xml.xpath.xdocument.4.0.1.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "PrivateFinance.Entities/1.0.0": {
+      "type": "project",
+      "path": "../PrivateFinance.Entities/PrivateFinance.Entities.csproj",
+      "msbuildProject": "../PrivateFinance.Entities/PrivateFinance.Entities.csproj"
     },
     "PrivateFinance.ViewModels/1.0.0": {
       "type": "project",

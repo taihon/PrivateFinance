@@ -5,12 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Attachment\" />
-    <Folder Include="Category\" />
-    <Folder Include="Document\" />
-    <Folder Include="Place\" />
-    <Folder Include="Operation\" />
-    <Folder Include="User\" />
+    <ProjectReference Include="..\PrivateFinance.Entities\PrivateFinance.Entities.csproj" />
   </ItemGroup>
 
 </Project>
