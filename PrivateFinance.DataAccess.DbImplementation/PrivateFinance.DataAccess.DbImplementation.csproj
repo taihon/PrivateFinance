@@ -1,7 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Attachment\" />
+    <Folder Include="Category\" />
+    <Folder Include="Document\" />
+    <Folder Include="Operation\" />
+    <Folder Include="Place\" />
+    <Folder Include="User\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PrivateFinance.DataAccess\PrivateFinance.DataAccess.csproj" />
+    <ProjectReference Include="..\PrivateFinance.DB\PrivateFinance.DB.csproj" />
+  </ItemGroup>
 
 </Project>

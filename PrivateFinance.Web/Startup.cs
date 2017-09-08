@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace PrivateFinance.Web
 {
@@ -27,8 +28,26 @@ namespace PrivateFinance.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRouting(options => options.LowercaseUrls = true);
+            services.AddSwaggerGen(
+                c =>
+                {
+                    c.SwaggerDoc("v1",
+                        new Info
+                        {
+                            Title = "Private finance management API",
+                            Version = "v1",
+                            Description = "API for management of private finances",
+                            TermsOfService = "None",
+                            License = new License { Name = "Use under MIT" },
+                            Contact = new Contact { Name = "Taihon", Url = "https://taihon.github.io" }
+                        });
+                });
+
             // Add framework services.
             services.AddMvc();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,6 +56,12 @@ namespace PrivateFinance.Web
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Project management API v1");
+                c.RoutePrefix = "api-docs";
+            });
             app.UseMvc();
         }
     }

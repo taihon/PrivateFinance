@@ -4,16 +4,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PrivateFinance.ViewModels;
+using PrivateFinance.DataAccess.Account;
 
 namespace PrivateFinance.Web.Controllers
 {
     [Route("api/[controller]")]
     public class AccountsController : Controller
     {
+        [HttpGet]
+        [ProducesResponseType(200,Type=typeof(ListResponse<AccountResponse>))]
         public Task<IActionResult> GetAccountsListAsync(AccountFilter filter, ListOptions options,
-            [FromServices] IAccountsListQuery)
+            [FromServices] IAccountsListQuery query)
         {
-            
+            return null;
         }
     }
 }
