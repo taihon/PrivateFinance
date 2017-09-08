@@ -19,6 +19,7 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.1" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PrivateFinance.DataAccess.DbImplementation\PrivateFinance.DataAccess.DbImplementation.csproj" />
     <ProjectReference Include="..\PrivateFinance.DataAccess\PrivateFinance.DataAccess.csproj" />
     <ProjectReference Include="..\PrivateFinance.ViewModels\PrivateFinance.ViewModels.csproj" />
   </ItemGroup>

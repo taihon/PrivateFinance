@@ -4,10 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using PrivateFinance.DataAccess.Account;
 using Swashbuckle.AspNetCore.Swagger;
+using PrivateFinance.DataAccess.DbImplementation.Account;
+using PrivateFinance.DB;
 
 namespace PrivateFinance.Web
 {
@@ -29,6 +33,9 @@ namespace PrivateFinance.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRouting(options => options.LowercaseUrls = true);
+            services.AddDbContext<FinanceContext>(option=>
+                option.UseSqlServer(Configuration.GetConnectionString("FinanceContext"))
+                );
             services.AddSwaggerGen(
                 c =>
                 {
@@ -47,6 +54,8 @@ namespace PrivateFinance.Web
             // Add framework services.
             services.AddMvc();
 
+            RegisterCommandsAndQueries(services);
+
 
         }
 
@@ -63,6 +72,15 @@ namespace PrivateFinance.Web
                 c.RoutePrefix = "api-docs";
             });
             app.UseMvc();
+        }
+
+        private void RegisterCommandsAndQueries(IServiceCollection services)
+        {
+            services
+                .AddScoped<IAccountsListQuery,AccountsListQuery>()
+
+
+                ;
         }
     }
 }

@@ -13,10 +13,11 @@ namespace PrivateFinance.Web.Controllers
     {
         [HttpGet]
         [ProducesResponseType(200,Type=typeof(ListResponse<AccountResponse>))]
-        public Task<IActionResult> GetAccountsListAsync(AccountFilter filter, ListOptions options,
+        public async Task<IActionResult> GetAccountsListAsync(AccountFilter filter, ListOptions options,
             [FromServices] IAccountsListQuery query)
         {
-            return null;
+            var response = await query.RunAsync(filter, options);
+            return Ok(response);
         }
     }
 }
