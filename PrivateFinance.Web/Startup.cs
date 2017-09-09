@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Converters;
 using PrivateFinance.DataAccess.Account;
 using PrivateFinance.DataAccess.DbImplementation.Account;
 using PrivateFinance.DB;
@@ -51,7 +52,10 @@ namespace PrivateFinance.Web
                 });
             
             // Add framework services.
-            services.AddMvc();
+            services.AddMvc()
+                .AddJsonOptions(
+                    options => options.SerializerSettings.Converters.Add(
+                        new StringEnumConverter {CamelCaseText = true}));
             services.AddAutoMapper(typeof(Startup));
             Mapping.CreateMappings(services);
 
