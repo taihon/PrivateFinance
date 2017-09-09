@@ -10,7 +10,8 @@ namespace PrivateFinance.DataAccess.DbImplementation.Account
     {
         public AccountMappings()
         {
-            CreateMap<Entities.Account, AccountResponse>().ReverseMap();
+            CreateMap<Entities.Account, AccountResponse>()
+                .ForMember(dest => dest.AccountType, src => src.MapFrom(o => (AccountType) (int) o.AccountType));
         }
     }
 }

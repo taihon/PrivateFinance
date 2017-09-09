@@ -53,11 +53,13 @@ namespace PrivateFinance.Web
             // Add framework services.
             services.AddMvc();
             services.AddAutoMapper(typeof(Startup));
+            Mapping.CreateMappings(services);
+
             services.AddSingleton(Mapper.Configuration);
             services.AddScoped<IMapper>(
                 sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
 
-            Mapping.CreateMappings();
+
 
             RegisterCommandsAndQueries(services);
 
@@ -82,8 +84,8 @@ namespace PrivateFinance.Web
         private void RegisterCommandsAndQueries(IServiceCollection services)
         {
             services
-                .AddScoped<IAccountsListQuery,AccountsListQuery>()
-
+                .AddScoped<IAccountsListQuery, AccountsListQuery>()
+                .AddScoped<IAccountQuery, AccountQuery>()
 
                 ;
         }
