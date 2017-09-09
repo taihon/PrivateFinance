@@ -13,6 +13,18 @@ namespace PrivateFinance.DB
             
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Account>()
+                .HasMany(a => a.Operations);
+            modelBuilder.Entity<Operation>()
+                .HasOne(a => a.From);
+            modelBuilder.Entity<Operation>()
+                .HasOne(a => a.To);
+
+            base.OnModelCreating(modelBuilder);
+        }
+
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Attachment> Attachments { get; set; }
         public DbSet<Category> Categories { get; set; }

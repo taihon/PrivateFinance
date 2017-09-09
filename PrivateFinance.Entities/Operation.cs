@@ -9,7 +9,9 @@ namespace PrivateFinance.Entities
     public class Operation:DomainObject
     {
         public Account From { get; set; }
+        public int? FromId { get; set; }
         public Account To { get; set; }
+        public int? ToId { get; set; }
         public DateTime Date { get; private set; }
         [Required]
         public Document Document { get; set; }
