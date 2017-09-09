@@ -90,7 +90,8 @@ namespace PrivateFinance.Web
             services
                 .AddScoped<IAccountsListQuery, AccountsListQuery>()
                 .AddScoped<IAccountQuery, AccountQuery>()
-
+                .AddScoped<ICreateAccountCommand,CreateAccountCommand>()
+                .AddScoped<IUpdateAccountCommand, UpdateAccountCommand>()
                 ;
         }
     }
