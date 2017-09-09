@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -9,9 +6,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using PrivateFinance.DataAccess.Account;
-using Swashbuckle.AspNetCore.Swagger;
 using PrivateFinance.DataAccess.DbImplementation.Account;
 using PrivateFinance.DB;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace PrivateFinance.Web
 {
@@ -36,6 +33,8 @@ namespace PrivateFinance.Web
             services.AddDbContext<FinanceContext>(option=>
                 option.UseSqlServer(Configuration.GetConnectionString("FinanceContext"))
                 );
+
+
             services.AddSwaggerGen(
                 c =>
                 {
@@ -50,9 +49,15 @@ namespace PrivateFinance.Web
                             Contact = new Contact { Name = "Taihon", Url = "https://taihon.github.io" }
                         });
                 });
-
+            
             // Add framework services.
             services.AddMvc();
+            services.AddAutoMapper(typeof(Startup));
+            services.AddSingleton(Mapper.Configuration);
+            services.AddScoped<IMapper>(
+                sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
+
+            Mapping.CreateMappings();
 
             RegisterCommandsAndQueries(services);
 
